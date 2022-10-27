@@ -14,7 +14,6 @@
 
 - Manipular o DOM / Manipular o Javascript
   - Nesse projeto aplicamos de forma prática a manipulação do DOM e do Javascript
---
 
 ## Desafio
 
