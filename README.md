@@ -79,3 +79,7 @@ Você também pode assistir a [este](https://vimeo.com/539240375/a116a166b9) ví
 ### OBS:
 - Tanto os linters quanto o cypress, foram configurados pela `Trybe`
 - Todos os teste desse projeto foram implementandos pela `Trybe`
+
+### Exemplo do projeto depois de pronto:
+
+![exemplo de arte com pixels](./art-with-pixels.gif)
