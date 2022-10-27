@@ -77,9 +77,9 @@ Você também pode assistir a [este](https://vimeo.com/539240375/a116a166b9) ví
 **Para rodar o cypress é preciso ter rodado o comando npm install anteriormente.**
 
 ### OBS:
-- Tanto os linters quanto o cypress, foram configurados pela `Trybe`
-- Todos os teste desse projeto foram implementandos pela `Trybe`
-- O exemplo do projeto depois de pronto, foi fornecido pela `Trybe`
+- Tanto os linters quanto o cypress, foram configurados pela <a href="https://betrybe.com">`Trybe`</a>
+- Todos os teste desse projeto foram implementandos pela <a href="https://betrybe.com">`Trybe`</a>
+- O exemplo do projeto depois de pronto, foi fornecido pela <a href="https://betrybe.com">`Trybe`</a>
 
 ### Exemplo do projeto depois de pronto:
 
