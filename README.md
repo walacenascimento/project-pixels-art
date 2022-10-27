@@ -31,7 +31,7 @@
   * `npm install`
 
 3. Rondando o projeto:
-  * Para rodar o projeto no navegador foi tulizados a extensão `Code Runner` do `VSCode`
+  * Para rodar o projeto no navegador foi utilizado a extensão `Code Runner` do `VSCode`
   
 ## Linter
 
