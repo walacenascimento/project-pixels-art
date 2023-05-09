@@ -32,6 +32,7 @@ const generationColorRGB = () => {
   return `rgb(+${r}+${g}+${b})`;
 }
 
+
 // Criando 4 li e adicionando na Ul de forma dinâmica
 const createLi = () => {
   for(let index = 1; index < 5; index += 1) {
@@ -41,7 +42,11 @@ const createLi = () => {
     elementLi.style.backgroundColor = generationColorRGB(index);// passando as cores aleatóriamente
     elementUlDivHeader.appendChild(elementLi); // inserindo as li no elemento pai(Ul)
   }
+  // Recupera a primeira li e seta a cor preta como padrão
+  let firstLi = document.getElementsByClassName('color')[0];
+  firstLi.style.backgroundColor = 'black';
 }
+
 
 // 3 - inserir o elemento na página
 // insere a estrutura básica da página (header, main e footer) no html.
@@ -53,6 +58,7 @@ document.body.appendChild(footer);
 header.appendChild(elementH1);
 header.appendChild(elementDivHeader);
 elementDivHeader.appendChild(elementUlDivHeader);
+
 
 // ---
 createLi()
