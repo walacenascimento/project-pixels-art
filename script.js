@@ -7,12 +7,18 @@ let footer = document.createElement('footer')
 let elementH1 = document.createElement('h1') // cria o h1 do header, que será o título da página
 let elementDivHeader = document.createElement('div');
 let elementUlDivHeader = document.createElement('ul');
+let elementDivMain = document.createElement('div');
+let elementUlMain = document.createElement('ul');
 
 // 2 - popular os elementos da página
   // adicionar o id e o texto pedido, e atribui o elemento  na página - requisito 1
 elementH1.id = 'title';
 elementH1.innerText = '"Paleta de Cores"';
 elementUlDivHeader.id = 'color-palette';
+
+// quadro de pixels
+elementDivMain.id = 'div-pixel-board'
+elementUlMain.id = 'pixel-board';
 
 // função que gera cores aleátoiras
   // código retirado de https://horadecodar.com.br/2022/01/16/gerar-cor-aleatoria-com-javascript/
@@ -32,9 +38,8 @@ const generationColorRGB = () => {
   return `rgb(+${r}+${g}+${b})`;
 }
 
-
 // Criando 4 li e adicionando na Ul de forma dinâmica
-const createLi = () => {
+const createPaletteColor = () => {
   for(let index = 1; index < 5; index += 1) {
     let elementLi = document.createElement('li');
     elementLi.classList = 'color'
@@ -42,11 +47,19 @@ const createLi = () => {
     elementLi.style.backgroundColor = generationColorRGB(index);// passando as cores aleatóriamente
     elementUlDivHeader.appendChild(elementLi); // inserindo as li no elemento pai(Ul)
   }
-  // Recupera a primeira li e seta a cor preta como padrão
+  // Recupera a primeira li e seta a cor preta como padrão - requisito 3
   let firstLi = document.getElementsByClassName('color')[0];
   firstLi.style.backgroundColor = 'black';
 }
 
+// Cria o quadro de pixels com 25 quadrados
+const createFramePixels = () => {
+  for (let index = 0; index < 25; index +=1 ) {
+    let elementLi = document.createElement('li');
+    elementLi.classList = 'pixel';
+    elementUlMain.appendChild(elementLi);
+  }
+}
 
 // 3 - inserir o elemento na página
 // insere a estrutura básica da página (header, main e footer) no html.
@@ -59,8 +72,12 @@ header.appendChild(elementH1);
 header.appendChild(elementDivHeader);
 elementDivHeader.appendChild(elementUlDivHeader);
 
+// Quadro de pixels
+main.appendChild(elementDivMain);
+elementDivMain.appendChild(elementUlMain);
 
 // ---
-createLi()
+createPaletteColor();
+createFramePixels();
 
 
