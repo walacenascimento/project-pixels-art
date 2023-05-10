@@ -49,6 +49,7 @@ const createPaletteColor = () => {
   }
   // Recupera a primeira li e seta a cor preta como padrão - requisito 3
   let firstLi = document.getElementsByClassName('color')[0];
+  firstLi.classList.add('selected') // adiciona uma segunda classe na primeira li que possui a cor preta requisito 6
   firstLi.style.backgroundColor = 'black';
 }
 
