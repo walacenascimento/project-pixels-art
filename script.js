@@ -7,8 +7,13 @@ let footer = document.createElement('footer')
 let elementH1 = document.createElement('h1') // cria o h1 do header, que será o título da página
 let elementDivHeader = document.createElement('div');
 let elementUlDivHeader = document.createElement('ul');
+
 let elementDivMain = document.createElement('div');
 let elementUlMain = document.createElement('ul');
+
+// Captura os elementos da página que já foram criados
+// let elementLiHeader = document.getElementsByClassName('color')
+// console.log(elementLiHeader);
 
 // 2 - popular os elementos da página
   // adicionar o id e o texto pedido, e atribui o elemento  na página - requisito 1
@@ -19,48 +24,6 @@ elementUlDivHeader.id = 'color-palette';
 // quadro de pixels
 elementDivMain.id = 'div-pixel-board'
 elementUlMain.id = 'pixel-board';
-
-// função que gera cores aleátoiras
-  // código retirado de https://horadecodar.com.br/2022/01/16/gerar-cor-aleatoria-com-javascript/
-  // const generationColorHexadecimal = () => {
-  //   const letters = '0123456789ABCDEF';
-  //   let color = '#';
-  //   for(let index = 0; index < 6; index += 1) {
-  //     color += letters[Math.floor(Math.random() * 16)];
-  //   }
-  //   return color;
-  // }
-
-  // referência: https://pt.stackoverflow.com/questions/320454/cores-aleat%C3%B3rias-nos-bot%C3%B5es
-const generationColorRGB = () => {
-  let r = Math.floor(Math.random() * 255), g = Math.floor(Math.random() * 255),
-  b = Math.floor(Math.random() * 255);
-  return `rgb(+${r}+${g}+${b})`;
-}
-
-// Criando 4 li e adicionando na Ul de forma dinâmica
-const createPaletteColor = () => {
-  for(let index = 1; index < 5; index += 1) {
-    let elementLi = document.createElement('li');
-    elementLi.classList = 'color'
-    // elementLi.style.backgroundColor = generationColorHexadecimal(index)
-    elementLi.style.backgroundColor = generationColorRGB(index);// passando as cores aleatóriamente
-    elementUlDivHeader.appendChild(elementLi); // inserindo as li no elemento pai(Ul)
-  }
-  // Recupera a primeira li e seta a cor preta como padrão - requisito 3
-  let firstLi = document.getElementsByClassName('color')[0];
-  firstLi.classList.add('selected') // adiciona uma segunda classe na primeira li que possui a cor preta requisito 6
-  firstLi.style.backgroundColor = 'black';
-}
-
-// Cria o quadro de pixels com 25 quadrados
-const createFramePixels = () => {
-  for (let index = 0; index < 25; index +=1 ) {
-    let elementLi = document.createElement('li');
-    elementLi.classList = 'pixel';
-    elementUlMain.appendChild(elementLi);
-  }
-}
 
 // 3 - inserir o elemento na página
 // insere a estrutura básica da página (header, main e footer) no html.
@@ -77,8 +40,62 @@ elementDivHeader.appendChild(elementUlDivHeader);
 main.appendChild(elementDivMain);
 elementDivMain.appendChild(elementUlMain);
 
+// função que gera cores aleátoiras
+  // código retirado de https://horadecodar.com.br/2022/01/16/gerar-cor-aleatoria-com-javascript/
+  // const generationColorHexadecimal = () => {
+  //   const letters = '0123456789ABCDEF';
+  //   let color = '#';
+  //   for(let index = 0; index < 6; index += 1) {
+  //     color += letters[Math.floor(Math.random() * 16)];
+  //   }
+  //   return color;
+  // }
+
+  // referência: https://pt.stackoverflow.com/questions/320454/cores-aleat%C3%B3rias-nos-bot%C3%B5es
+  const generationColorRGB = () => {
+    let r = Math.floor(Math.random() * 255), g = Math.floor(Math.random() * 255),
+    b = Math.floor(Math.random() * 255);
+    return `rgb(+${r}+${g}+${b})`;
+  }
+
+// Criando 4 li e adicionando na Ul de forma dinâmica
+const createPaletteColor = () => {
+  for(let index = 1; index < 5; index += 1) {
+    let elementLi = document.createElement('li');
+    elementLi.classList = 'color'
+    // elementLi.style.backgroundColor = generationColorHexadecimal(index)
+    elementLi.style.backgroundColor = generationColorRGB(index);// passando as cores aleatóriamente
+    elementUlDivHeader.appendChild(elementLi); // inserindo as li no elemento pai(Ul)
+  }
+  // Recupera a primeira li e seta a cor preta como padrão - requisito 3
+  let firstLi = document.getElementsByClassName('color')[0];
+  firstLi.classList.add('selected') // adiciona uma segunda classe na primeira li que possui a cor preta requisito 6
+  firstLi.style.backgroundColor = 'black';
+
+}
+
+// Cria o quadro de pixels com 25 quadrados
+const createFramePixels = () => {
+  for (let index = 0; index < 25; index +=1 ) {
+    let elementLi = document.createElement('li');
+    elementLi.classList = 'pixel';
+    elementUlMain.appendChild(elementLi);
+  }
+}
+
+// Seleciona a cor para pintar o pixel
+const selectPixel = document.getElementById('color-palette')
+
+const selectColor = (event) => {
+  const selected = document.querySelector('.selected');
+  if (selected) {
+    selected.classList.remove('selected');
+  }
+  event.target.classList.add('selected');
+}
+
+selectPixel.addEventListener('click', selectColor)
+
 // ---
 createPaletteColor();
 createFramePixels();
-
-
