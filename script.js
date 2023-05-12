@@ -71,31 +71,39 @@ const createPaletteColor = () => {
   let firstLi = document.getElementsByClassName('color')[0];
   firstLi.classList.add('selected') // adiciona uma segunda classe na primeira li que possui a cor preta requisito 6
   firstLi.style.backgroundColor = 'black';
-
 }
+createPaletteColor();
 
 // Cria o quadro de pixels com 25 quadrados
 const createFramePixels = () => {
   for (let index = 0; index < 25; index +=1 ) {
     let elementLi = document.createElement('li');
     elementLi.classList = 'pixel';
+    // elementLi.classList.add('xablau')
     elementUlMain.appendChild(elementLi);
   }
 }
+createFramePixels();
 
 // Seleciona a cor para pintar o pixel
-const selectPixel = document.getElementById('color-palette')
-
-const selectColor = (event) => {
+const selectPixel = document.getElementById('color-palette');
+selectPixel.addEventListener('click', (event) => {
   const selected = document.querySelector('.selected');
   if (selected) {
     selected.classList.remove('selected');
   }
   event.target.classList.add('selected');
+})
+
+// pinta o pixel clicado com a cor que foi selecionada.
+  // recupera o elemento pela classe e guarda na const setColor
+  const setColor = document.getElementsByClassName('pixel');
+  for(let index = 0; index < setColor.length; index += 1) {
+    setColor[index].addEventListener('click', (event) => {
+      // const selectedColor =  document.querySelector('.selected').style.backgroundColor;
+      // const setColorPixel = event.target;
+      // setColorPixel.style.backgroundColor = selectedColor
+      const selectedColor =  document.querySelector('.selected');
+      event.target.style.backgroundColor = selectedColor.style.backgroundColor
+    })
 }
-
-selectPixel.addEventListener('click', selectColor)
-
-// ---
-createPaletteColor();
-createFramePixels();
