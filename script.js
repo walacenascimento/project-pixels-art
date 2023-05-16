@@ -10,6 +10,7 @@ let elementUlDivHeader = document.createElement('ul');
 
 let elementDivMain = document.createElement('div');
 let elementUlMain = document.createElement('ul');
+let btnClearBoard = document.createElement('button'); // Cria o botão
 
 // Captura os elementos da página que já foram criados
 // let elementLiHeader = document.getElementsByClassName('color')
@@ -25,6 +26,9 @@ elementUlDivHeader.id = 'color-palette';
 elementDivMain.id = 'div-pixel-board'
 elementUlMain.id = 'pixel-board';
 
+btnClearBoard.id = 'clear-board';
+btnClearBoard.innerText = 'Limpar';
+
 // 3 - inserir o elemento na página
 // insere a estrutura básica da página (header, main e footer) no html.
 document.body.appendChild(header);
@@ -35,6 +39,8 @@ document.body.appendChild(footer);
 header.appendChild(elementH1);
 header.appendChild(elementDivHeader);
 elementDivHeader.appendChild(elementUlDivHeader);
+
+header.appendChild(btnClearBoard);
 
 // Quadro de pixels
 main.appendChild(elementDivMain);
@@ -107,3 +113,16 @@ selectPixel.addEventListener('click', (event) => {
       event.target.style.backgroundColor = selectedColor.style.backgroundColor
     })
 }
+
+// Recupera o botão "Limpar"
+const clearBoard = document.getElementById('clear-board');
+// implementa o evento de clixk no botão
+clearBoard.addEventListener('click', () => {
+  // Recupera os elementos pixel
+  const clearPixel = document.getElementsByClassName('pixel');
+  // Percorre cada elemento pixel
+  for(let index = 0; index < clearPixel.length; index += 1) {
+    // Altera a cor de cada elemento para branco
+    clearPixel[index].style.backgroundColor = 'white';
+  }
+})
