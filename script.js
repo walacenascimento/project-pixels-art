@@ -12,6 +12,11 @@ let elementDivMain = document.createElement('div');
 let elementUlMain = document.createElement('ul');
 let btnClearBoard = document.createElement('button'); // Cria o botão
 
+let labelInputBoardSize = document.createElement('label');
+let inputBoardSize = document.createElement('input');
+let btnGenereteBoard = document.createElement('button');
+
+
 // Captura os elementos da página que já foram criados
 // let elementLiHeader = document.getElementsByClassName('color')
 // console.log(elementLiHeader);
@@ -29,6 +34,16 @@ elementUlMain.id = 'pixel-board';
 btnClearBoard.id = 'clear-board';
 btnClearBoard.innerText = 'Limpar';
 
+labelInputBoardSize.innerText = 'selecione o tamanho do pixel: '
+inputBoardSize.id = 'board-size';
+inputBoardSize.type = 'number';
+inputBoardSize.min = '1';
+inputBoardSize.max = '50';
+inputBoardSize.innerHTML = 'select-size'
+
+btnGenereteBoard.id = 'generate-board';
+btnGenereteBoard.innerText = 'VQV'
+
 // 3 - inserir o elemento na página
 // insere a estrutura básica da página (header, main e footer) no html.
 document.body.appendChild(header);
@@ -41,6 +56,11 @@ header.appendChild(elementDivHeader);
 elementDivHeader.appendChild(elementUlDivHeader);
 
 header.appendChild(btnClearBoard);
+
+header.appendChild(labelInputBoardSize);
+header.appendChild(inputBoardSize);
+header.appendChild(btnGenereteBoard);
+
 
 // Quadro de pixels
 main.appendChild(elementDivMain);
@@ -126,3 +146,5 @@ clearBoard.addEventListener('click', () => {
     clearPixel[index].style.backgroundColor = 'white';
   }
 })
+
+// Requisito 10
