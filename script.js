@@ -104,7 +104,7 @@ createPaletteColor();
 
 // Cria o quadro de pixels com 25 quadrados
 const createFramePixels = () => {
-  for (let index = 0; index < 25; index +=1 ) {
+  for (let index = 0; index < 28; index +=1 ) {
     let elementLi = document.createElement('li');
     elementLi.classList = 'pixel';
     elementUlMain.appendChild(elementLi);
