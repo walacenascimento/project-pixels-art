@@ -153,7 +153,7 @@ ou para executar todos os testes clique em Run all specs
     - Valor menor que 5, considerar 5 como padrão;
     - Valor maior que 50, considerar 50 como padrão.
 
-- [ ] 12. Faça com que as cores da paleta sejam geradas aleatoriamente ao carregar a página.
+- [x] 12. Faça com que as cores da paleta sejam geradas aleatoriamente ao carregar a página.
   - A cor preta ainda precisa estar presente e deve ser a primeira na sua paleta de cores.
 
 
