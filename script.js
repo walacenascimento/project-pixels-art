@@ -34,15 +34,16 @@ elementUlMain.id = 'pixel-board';
 btnClearBoard.id = 'clear-board';
 btnClearBoard.innerText = 'Limpar';
 
-labelInputBoardSize.innerText = 'selecione o tamanho do pixel: '
-inputBoardSize.id = 'board-size';
-inputBoardSize.type = 'number';
-inputBoardSize.min = '1';
-inputBoardSize.max = '50';
-inputBoardSize.innerHTML = 'select-size'
+// Requisito 10 e 11
+// labelInputBoardSize.innerText = 'Aumente o tamanho do quadro aqui: '
+// inputBoardSize.id = 'board-size';
+// inputBoardSize.type = 'number';
+// inputBoardSize.min = '1';
+// inputBoardSize.max = '50';
+// inputBoardSize.innerHTML = 'select-size'
 
-btnGenereteBoard.id = 'generate-board';
-btnGenereteBoard.innerText = 'VQV'
+// btnGenereteBoard.id = 'generate-board';
+// btnGenereteBoard.innerText = 'VQV'
 
 // 3 - inserir o elemento na página
 // insere a estrutura básica da página (header, main e footer) no html.
@@ -57,9 +58,10 @@ elementDivHeader.appendChild(elementUlDivHeader);
 
 header.appendChild(btnClearBoard);
 
-header.appendChild(labelInputBoardSize);
-header.appendChild(inputBoardSize);
-header.appendChild(btnGenereteBoard);
+// Requisito 10 e 11
+// header.appendChild(labelInputBoardSize);
+// header.appendChild(inputBoardSize);
+// header.appendChild(btnGenereteBoard);
 
 
 // Quadro de pixels
@@ -105,7 +107,6 @@ const createFramePixels = () => {
   for (let index = 0; index < 25; index +=1 ) {
     let elementLi = document.createElement('li');
     elementLi.classList = 'pixel';
-    // elementLi.classList.add('xablau')
     elementUlMain.appendChild(elementLi);
   }
 }
@@ -148,3 +149,24 @@ clearBoard.addEventListener('click', () => {
 })
 
 // Requisito 10
+// Resolve metade do requisito 10 e 11
+// const limitSize = () => {
+//   const inputSize = document.getElementById('board-size');
+//   if(inputSize.value < 5) {
+//     inputSize.value = 5;
+//   }
+//   if(inputSize.value > 50) {
+//     inputSize.value = 50;
+//   }
+// }
+
+// const btnVQV = document.getElementById('generate-board');
+// btnVQV.addEventListener('click', (event) => {
+//   const inputSize = document.getElementById('board-size');
+//   if(inputSize.value === '') {
+//     alert('Board inválido!');
+//   } else {
+//     limitSize();
+//     createFramePixels(inputSize.value);
+//   }
+// })
